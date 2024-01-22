@@ -26,9 +26,9 @@ public class GolField {
     	fieldXSize = fieldX;
     	fieldYSize = fieldY;
 
-    	cells[10][9].state = GolCell.State.ALIVE;
-    	cells[11][9].state = GolCell.State.ALIVE;
-    	cells[12][9].state = GolCell.State.ALIVE;
+    	cells[10][11].state = GolCell.State.ALIVE;
+    	cells[10][12].state = GolCell.State.ALIVE;
+    	cells[10][13].state = GolCell.State.ALIVE;
 	}
 
 	public void printField() {
@@ -49,12 +49,15 @@ public class GolField {
 		for (int x = 0; x < fieldXSize; x++) {
 		    for (int y = 0; y < fieldYSize; y++) {
 				nNeighbourMatrix[x][y] = getNneighbours(x, y);
+
+		    	if (nNeighbourMatrix[x][y] > 0) System.out.println("[" + x + "," + y + "] - " + nNeighbourMatrix[x][y] + ", " + cells[x][y].state);
 			}
 		}
 		for (int x = 0; x < fieldXSize; x++) {
 		    for (int y = 0; y < fieldYSize; y++) {
 		    	int nNeighbours = nNeighbourMatrix[x][y];
-				System.out.println("[" + x + "," + y + "] - " + nNeighbours + ", " + cells[x][y].state);
+		    	// GolCell cell = cells[x][y];
+				// if (cell.state == GolCell.State.ALIVE) System.out.println("[" + x + "," + y + "] - " + nNeighbours + ", " + cell.state);
 		    	int rule = 0;
 		    	// rule 1.
 		    	if (cells[x][y].state == GolCell.State.ALIVE && nNeighbours < 2) {
@@ -62,11 +65,9 @@ public class GolField {
 		    		rule = 1;
 		    	}
 		    	// rule 2.
-		    	else if (cells[x][y].state == GolCell.State.ALIVE) {
-		    		if (nNeighbours == 2 || nNeighbours == 3) {
-			    		cells[x][y].state = cells[x][y].state;
-			    		rule = 2;
-			    	}
+		    	else if (cells[x][y].state == GolCell.State.ALIVE && (nNeighbours == 2 || nNeighbours == 3)) {
+		    		// cells[x][y].state = cells[x][y].state;
+		    		rule = 2;
 		    	}
 		    	// rule 3.
 		    	else if (cells[x][y].state == GolCell.State.ALIVE && nNeighbours > 3) {
@@ -78,7 +79,7 @@ public class GolField {
 		    		cells[x][y].state = GolCell.State.ALIVE;
 		    		rule = 4;
 		    	}
-		    	if (rule != 0) System.out.println("rule " + rule + ". [" + x + "," + y + "]");
+		    	if (rule != 0) System.out.println("rule " + rule + ". [" + x + "," + y + "] - " + nNeighbours + ", " + cells[x][y].state);
 		    }
 		}
 	}
@@ -86,10 +87,26 @@ public class GolField {
 
 	public int getNneighbours(int x, int y) {
 		int nNeighbours = 0;
-		if (x < fieldXSize-1)if (cells[x + 1][y].state == GolCell.State.ALIVE) nNeighbours++;
-		if (x > 0) if (cells[x - 1][y].state == GolCell.State.ALIVE) nNeighbours++;
-		if (y < fieldYSize-1) if (cells[x][y + 1].state == GolCell.State.ALIVE) nNeighbours++;
-		if (y > 0) if (cells[x][y - 1].state == GolCell.State.ALIVE) nNeighbours++;
+
+		if (x < fieldXSize-1)
+			if (cells[x + 1][y].state == GolCell.State.ALIVE) nNeighbours++;
+		if (x < fieldXSize-1 && y < fieldYSize-1) 
+			if (cells[x + 1][y + 1].state == GolCell.State.ALIVE) nNeighbours++;
+		if (x > 0)
+			if (cells[x - 1][y].state == GolCell.State.ALIVE) nNeighbours++;
+		if (x > 0 && y > 0) 
+			if (cells[x - 1][y - 1].state == GolCell.State.ALIVE) nNeighbours++;
+
+		if (y < fieldYSize-1)
+			if (cells[x][y + 1].state == GolCell.State.ALIVE) nNeighbours++;
+		if (x < fieldXSize-1 && y > 0)
+			if (cells[x + 1][y - 1].state == GolCell.State.ALIVE) nNeighbours++;
+		
+		if (y > 0)
+			if (cells[x][y - 1].state == GolCell.State.ALIVE) nNeighbours++;
+		if (x > 0 && y < fieldYSize-1)
+			if (cells[x - 1][y + 1].state == GolCell.State.ALIVE) nNeighbours++;
+
 		return nNeighbours;
 	}
 

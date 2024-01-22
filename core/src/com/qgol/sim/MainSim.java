@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class MainSim extends ApplicationAdapter {
     private ShapeRenderer shapeRenderer;
-
+    boolean oneIteration = true;
     int fieldXSize = 0;
     int fieldYSize = 0;
     int fieledSize = 8;
@@ -34,10 +34,11 @@ public class MainSim extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         field.render(shapeRenderer, fieledSize);
+
         field.applyRules();
-
+		System.out.println("----------------------");
         // field.printField();
-
+		oneIteration = false;
         shapeRenderer.end();
     }
 
