@@ -1,7 +1,5 @@
 # QuantumGameOfLife
 
-*written in Jave because I needed a reason (this project) to do something in Jave for CS tests* \r
-
 #### Resources
 - [My Physics Notes](physics_notes.pdf)
 - [Path integral formulation](https://en.wikipedia.org/wiki/Path_integral_formulation)

@@ -4,6 +4,8 @@
 
 = Math/ Physics Summary \ \
 
+Src: MIT-Path-Integral-paper.pdf \
+
 - Vector Represenataion
   - Dirac Bra-ket Notation 
     - 1 dim complex Hilbert space 
@@ -52,11 +54,12 @@
   - Formula: $|psi(x, t') angle.r = integral_(-infinity)^infinity angle.l psi(x',t')|psi(x_0,t_0)angle.r d x'|psi(x',t')$
   - This formulation has proven crucial to the subsequent development of theoretical physics, because manifest Lorentz covariance (time and space components of quantities enter equations in the same way) is easier to achieve than in the operator formalism of canonical quantization. Unlike previous methods, the path integral allows one to easily change coordinates between very different canonical descriptions of the same quantum system. Another advantage is that it is in practice easier to guess the correct form of the Lagrangian of a theory, which naturally enters the path integrals (for interactions of a certain type, these are coordinate space or Feynman path integrals), than the Hamiltonian). _#link("https://en.wikipedia.org/wiki/Path_integral_formulation")[Source]_
   - Propagator: $U(x', t'; x_0, t_0) = angle.l psi(x', t') | psi(x_0, t_0) angle.r$
+    - The Propagator represents the probability amplitude for a particle to travel from one point in space and time to another
     - with elapsed time written as: $U(x', t; x_0)$
     - Propagator and an initial state Ket can fully describe the evolution of a system over time
     - Action: $S[x(t)]$
-      - An infinite continuum of trajectories $x(t)$(time indipendent) are possible, each with a callical action
-    - $->$ Every possible path contrbutes with equal amplitude to the Propagator, but with a phase related to the classical action (action $->$ complex phase). Summing over all possible trajectories $->$ Propagator
+      - An infinite continuum of trajectories $x(t)$(time indipendent) are possible, each with a classical action
+    - $->$ Every possible path contributes with equal amplitude to the Propagator, but with a phase related to the classical action (action $->$ complex phase). Summing over all possible trajectories $->$ Propagator
     - 
       \ $U(x', t; x_0) = A(t) sum_("all\ntrajectories") exp[i/hbar overbrace(S[x(t)], "action over\ntrajectory") ]$
 
