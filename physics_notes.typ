@@ -6,6 +6,21 @@
 
 Src: MIT-Path-Integral-paper.pdf \
 
+- General Prequests
+  - Lagragian 
+    - Represents the difference between the kinetic and potential energy of a system at given n-dim point in spaced
+    - The stationary *action principle* requires that the *action* functional of the system derived from L must remain at a stationary point (a maximum, minimum, or saddle) throughout the time evolution of the system. 
+    - $L = K - V$
+    - In Euclidian (flat) Space
+      - The Lagrangian is constructed using standard expressions for kinetic and potential energy.
+      - $L = 1/2 ​m x^2 − 1/2 k x^2$
+      - When you need to describe motion of a system you need the Euler Lagragian to analyze the dynamics of physical systems using the principle of least action
+        - $d/(d t) ((partial L )/(partial dot(q)^i)) - (partial L) / (partial q^i) = 0$
+    - In more complex Riemann Space
+      - The Lagrange formalism can be extended using the concept of a Riemannian manifold. In these cases, the kinetic energy term must account for the curvature of the space
+      - For Particle of mass m moving in D-dimensional Manifold with metric tensor $g_(a b)$ is: 
+        - $L = 1/2 m g_(a b) (q) dot(q)^a dot(q)^b - V(q)$
+        - The metric tensor defines the curvature of the space
 - Vector Represenataion
   - Dirac Bra-ket Notation 
     - 1 dim complex Hilbert space 
@@ -72,4 +87,7 @@ Src: MIT-Path-Integral-paper.pdf \
     - trajectories with action $pi hbar$ more than the classical action ar out of phase and intefere destructively with each other. Integrating over more of such destructive trajectories cause their contribution to average out to zero
     - $->$ the calssical trajectory is qualitatively imoprtant
       - $pi hbar$ is frightinly small making the principal contributions trajectories those in a narrow band around the classical one. On quantum scale though $pi hbar$ is big enough to cause significant deviations from the classical trajectory
-  - 
+  - Propagator for a free particle
+    - For a particle moving in free spcae along one dimension
+    - Formular 12 in the paper 
+    - $U(x, t; x_0) = sqrt(m/(2pi i hbar t)) exp[(i m)/(2t hbar) (x-x_0)^2]$

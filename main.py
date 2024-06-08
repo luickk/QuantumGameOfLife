@@ -1,6 +1,7 @@
 import pygame
 import sys
 import os
+from physics import physics
 
 pygame.init()
 
@@ -18,6 +19,7 @@ fill_color = (255, 255, 255)
 empty_color = (0, 0, 0)
 
 def main():
+    print(propagator_simple_free_particle(1,1,1))
     board = new_grid(grid_size[0], grid_size[1])
     board[10][10] = True
     board[11][10] = True
