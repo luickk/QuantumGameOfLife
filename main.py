@@ -76,4 +76,5 @@ def draw_grid(win, board):
                                  (j*cell_size[0], i*cell_size[1], cell_size[0], cell_size[1]))
 
 if __name__ == "__main__":
-    main()
+    print(physics.propagator_simple_free_particle_2d((0,0), (10, 10), 10, 10))
+    #main()

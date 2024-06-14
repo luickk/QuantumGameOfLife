@@ -1,12 +1,20 @@
-from sympy import *
-import sympy.physics.quantum as quantum
+import numpy as np
+import sympy as sp
+from sympy.physics.quantum.constants import hbar
+
+def calculate_distance(point1, point2):
+    point1 = np.array(point1)
+    point2 = np.array(point2)
+    distance = np.linalg.norm(point1 - point2)
+    return distance
 
 
-from quantum.constants import hbar
+def propagator_simple_free_particle_2d(p1, p2, t, m):
+	
+	distance = calculate_distance(p1, p2)
 
-m = 0
-N = 0
+	i = sp.Symbol('i', imaginary = True)
+	expr = (m / (2 * sp.pi * i * hbar * t)) * sp.exp(((i * m) / (2 * t * hbar)) * distance)
 
-def propagator_simple_free_particle(x, t, x0):
-	res = 0
-	res = sqrt(m / (2 * pi * i * hbar * t) * exp((im)/(2*t*hbar)(x-x0)^2))
+	
+	return sp.N(expr)

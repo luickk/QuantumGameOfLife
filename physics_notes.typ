@@ -21,6 +21,8 @@ Src: MIT-Path-Integral-paper.pdf \
       - For Particle of mass m moving in D-dimensional Manifold with metric tensor $g_(a b)$ is: 
         - $L = 1/2 m g_(a b) (q) dot(q)^a dot(q)^b - V(q)$
         - The metric tensor defines the curvature of the space
+    - Greens funciton
+      - Way to display a inhomogeneous differential equation as an integral
 - Vector Represenataion
   - Dirac Bra-ket Notation 
     - 1 dim complex Hilbert space 
